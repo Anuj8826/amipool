@@ -1,0 +1,1388 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="description" content="Carma - Real-time Carpooling for Commuters">
+		<meta name="keywords" content="Ride share,Share ride,Lift share,Ride board,Rideshare,Ridesharing,sharing rides ,carpool rideshare, share a ride, iPhone app,Real-time,Realtime,Real-time ridesharing,Commuter,Commute,Commuting,Commuters,Carpool,Carpooling,Sluggers,Carsharing,Carshare,Slugging,Vanpool,Futurefleet,Avego,Carma,Rideboard,HOV lane,Carpool lane">
+		
+		
+		<meta name="HandheldFriendly" content="True">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        <meta name="twitter:card" content="app">
+        <meta name="twitter:description" content="Carma enables you to set up shared car journeys with people in real-time - just browse your nearby matches and get in touch.">
+        <meta name="twitter:app:id:iphone" content="369681885">
+        <meta name="twitter:app:id:ipad" content="369681885">
+        <meta name="twitter:app:id:googleplay" content="com.avego.avegodriver">
+
+		
+		<meta http-equiv="cleartype" content="on">
+	
+		<title>Carma - Real-time Carpooling</title>
+		
+		<link type="text/css" rel="stylesheet" href="https://fast.fonts.net/cssapi/d21e8f45-3864-4511-960f-f0fa3bad50db.css"/>
+		
+		<link rel="dns-prefetch" href="//developer.avego.com/">
+		<link rel="dns-prefetch" href="https://api.carmacarpool.com">
+		
+			
+		<link rel="icon" type="image/x-icon" href="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/carma.ico" />
+		
+		
+	<link rel="stylesheet" href="https://developer.avego.com/libs/rtr-desktop/1.191.0/avego-rtr-desktop-external-1.191.0.min.css" type="text/css">
+	<link rel="stylesheet" href="https://developer.avego.com/libs/rtr-desktop/1.191.0/avego-rtr-desktop-app-1.191.0.min.css" type="text/css">
+
+		
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		var account = "UA-5959865-2";
+		_gaq.push(["_setAccount", account]);
+		_gaq.push(["_trackPageview"]);
+
+		(function() {
+			var ga = document.createElement("script"); ga.type = "text/javascript"; ga.async = true;
+			ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
+			var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ga, s);
+		})();
+
+	</script>
+
+
+		
+		
+		<style type="text/css">
+			@font-face {
+				font-family: 'icomoon';
+				src:url('/developer/rtr-desktop/fonts/icomoon.eot');
+				src:url('/developer/rtr-desktop/fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+					url('/developer/rtr-desktop/fonts/icomoon.woff') format('woff'),
+					url('/developer/rtr-desktop/fonts/icomoon.ttf') format('truetype'),
+					url('/developer/rtr-desktop/fonts/icomoon.svg#icomoon') format('svg');	
+				font-weight: normal;
+				font-style: normal;
+			}
+			
+			@media screen and (-webkit-min-device-pixel-ratio:0) {
+    			@font-face {
+        			font-family: 'icomoon';
+        			src: url('/developer/rtr-desktop/fonts/icomoon.svg#icomoon') format('svg');
+    			}
+			}
+		</style>
+		
+	</head>
+	
+	<body>
+		<div id="wrap" class="colorskin-10">
+			<header id="header">
+				
+<!--
+	<div id="header-nav-bar" class="navbar navbar-inverse navbar-static-top">
+		
+			<div class="navbar-inner home">
+		
+
+			<div class="row-fluid menu-bar">
+
+				<a href="https://carmacarpool.com/" class="logo pull-left" title="Carma">
+					<img src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/carma-logo.png" alt="Carma"/>
+				</a>
+
+				<ul class="nav pull-right fixed-nav">
+					
+					<li><a href="https://carmacarpool.com/rideboard" title="Search for Rides">Search for Rides</a></li>
+					<li>
+					
+					
+						<a class="scroll-to-link" href="#how-it-works">
+					
+					How it works</a></li>
+
+					
+						<li><a class="scroll-to-link" href="#download-app-header">Download</a></li>
+					
+
+					
+						<li><a href="https://carmacarpool.com/news" target="_blank">Blog</a></li>
+					
+
+					<li class="last">
+
+						<p class="navbar-text pull-right login">
+							<a href="https://carmacarpool.com/authentication" class="login-btn btn-secondary">Login</a>/
+							<a href="https://carmacarpool.com/signup" class="signup-btn btn-tertiary">Sign up</a>
+						</p>
+
+						<div class="navbar-text pull-right dropdown dashboard">
+							<div class="unread-message"></div>
+							<span>Logged in as</span>
+							<a data-toggle="dropdown" class="dropdown-toggle name" href="#"><span class="name-container"></span><span class="arrow-down"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="https://carmacarpool.com/home">Search for Rides</a></li>
+								<li><a href="https://carmacarpool.com/dashboard#profile" title="My Profile">My Profile</a></li>
+								<li><a href="https://carmacarpool.com/dashboard#message" title="My Messages">My Messages</a></li>
+								<li><a href="https://carmacarpool.com/dashboard#trip" title="My Trips">My Trips</a></li>
+								<li><a href="https://carmacarpool.com/setting">Settings</a></li>
+								<li class="divider"></li>
+								<li><a class="logout">Sign out</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+--!>
+	<div  id="header-nav-bar" class="container">
+		<div class="four columns logo"><a href="https://carmacarpool.com"><img width="120" alt="logo" id="img-logo" src="img/amipool.png"></a></div>
+		<nav class="nav-wrap1 twelve columns" id="nav-wrap">
+			<ul id="nav">
+				<li class="tab-search"><a href="https://carmacarpool.com/home">Search for Rides</a></li>
+				<span class="login">
+					<li><a href="https://carmacarpool.com/authentication"><button class="small login blue">LOGIN</button></a></li>
+					<li><a href="https://carmacarpool.com/signup"><button class="small signup orange">SIGNUP</button></a></li>	
+				</span>
+
+				<span class="dashboard">
+					<li class="tab-profile"><a href="https://carmacarpool.com/dashboard#profile">My Profile</a></li>
+					<li class="tab-messages"><a href="https://carmacarpool.com/dashboard#message">My Messages</a></li>
+					<li class="tab-trips"><a href="https://carmacarpool.com/dashboard#trip">My Trips</a></li>
+					<li class=""><button class="small msgcount unread-message"></button></li>
+					<li class="submenu"><button class="small name-container black"></button>
+						<ul>
+							<li><a href="https://carmacarpool.com/setting">Settings</a></li>
+							<li><a class="logout">Log out</a></li>
+						</ul>
+					</li>
+				</span>
+
+			</ul>
+		</nav>
+	<!-- /nav-wrap -->
+	</div>
+
+			</header>
+
+			<div class="wrap">
+				
+
+	<div id="home-page">
+
+		<div class="hero-action sf-action">
+			<div class="content-box-inner">
+				<a href="https://carmacarpool.com/bartstrike/drivers-wanted/" target="_blank">
+					<span class="title main">Calling all drivers!</span>
+					<span class="title desc">Will $25.00 per day help cover your parking costs during BARTstrike?</span>
+				</a>
+			</div>
+		</div>
+
+		<div id="default-hero" class="hero">
+			
+			<img id="advice-callout" src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/advicecallout.png" alt="" />
+
+			<div id="background-container">
+			
+			
+				<img src="img/beat.jpg"  alt="Carma"/>
+				<!--<div id="dot-pattern"></div>--!>
+			
+			</div>
+
+			<div id="search-box">
+				<section class="container">
+					<div class="welcome-msg">
+					
+					
+					 
+						<h1>Try our Trip Finder</h1>
+						<h2>Get there together</h2>
+					
+					</div>
+
+					<form id="ride-search-form" class="form-inline">
+
+	<div class="location-inputs">
+		<input type="text" class="input-large search-form-from" placeholder="Going from...">
+		<input type="text" class="input-large search-form-to" placeholder="Going to...">
+	</div>
+
+	<p class="search-options">
+		<select id="user-role" name="user-role">
+			<option value="">All</option>
+			<option value="driver">Searching for Drivers</option>
+			<option value="rider">Searching for Riders</option>
+		</select>
+		<span id="date-selector">
+			<span class="default-value">
+				Departing:
+				<span class="date-selected all-day">Today</span>
+				<span class="date-selected now hide">Now</span>
+				<i class="icon-calendar pull-right"></i>
+			</span>
+			<input type="text" id="search-date-picker" class="input-medium" readonly="readonly">
+		</span>
+	</p>
+
+	<div>
+		<div class="pull-left"> 
+			<a href="#" class="option-switch" title="More search options">More search options</a>
+		</div>
+		<div class="pull-right">
+			<button type="button" class="btn btn-action search-go">Search</button>
+		</div>
+		<div class="clearfix"></div>
+	 </div>
+
+</form>
+					<div id="focus-signup">
+	<div id="third-party-connect">
+		
+		
+		 
+		<div class="download-links">
+			<a href="https://carmacarpool.com/android" title="" target="_blank" style="text-decoration:none;">
+				<img src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/play-store-badge.png" alt="" />
+			</a>
+			<a href="https://carmacarpool.com/ios" title="" target="_blank" style="text-decoration:none;">
+				<img src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/app-store-badge.png" alt="" />
+			</a>
+		</div>
+			
+	</div>
+	
+	
+	
+</div>
+
+<div class="download-links">
+	<a href="https://carmacarpool.com/home?country=us&region=ca" title="" >
+		<img src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/button-heatmap.png" alt="" />
+	</a>
+</div>
+
+
+<script id="bart-strik-popup-template" type="text/x-handlebars-template">
+	<span href='#' class='text-close'>Close</span>
+	
+	<div class="div-to-bart-strike-container">
+		<!--<img src='https://developer.avego.com/libs/rtr-desktop/1.191.0/images/rock-ridge-call-out.png' class='pick-up-image'></img>-->
+		<span class='pick-up-location'>Driving past Walnut Creek?</span>
+		<a class='link-to-bart-strike' href='https://carmacarpool.com/bartstrike' title='Beat the BART strike'>Earn $25 and beat the Bart Strike chaos</a>
+	</div>
+</script>
+				</section>
+			</div>
+
+			<div id="communities-container">
+				<a class="community" data-community="bergen" href="#" title="Bergen">
+					<img src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/bergencommunity_callout.png" alt="Bergen"/>
+				</a>
+				<h5>View Bergen community</h5>
+			</div>
+
+		</div>
+
+		<div id="california-hero" class="hero">
+			
+			<div id="california-map"></div>
+
+			<div class="stations-box">
+
+				<div class="welcome-msg">
+				
+				
+				
+				<h1>Try our Trip Finder</h1>
+				<h2 class="so-do-your-neighbors">Get there together</h2>
+				<h2>Carma is the breakthrough smartphone app that lets you arrange carpools with your community anytime, anywhere. Travel to work faster, share the cost of driving and have some fun... get there together today!</h2>
+				
+				</div>
+				
+				<div class="station-container" style="display:none;">
+
+					<select id="california-from-station" autocomplete="off" class="station-selector" autocomplete="off">
+						<option value="-1">From All Stations</option>
+						
+							<option value="37.803664,-122.271604">12th St. Oakland City Center</option>
+						
+							<option value="37.765062,-122.419694">16th St. Mission</option>
+						
+							<option value="37.80787,-122.269029">19th St. Oakland</option>
+						
+							<option value="37.752254,-122.418466">24th St. Mission</option>
+						
+							<option value="37.853024,-122.26978">Ashby</option>
+						
+							<option value="37.72198087,-122.4474142">Balboa Park</option>
+						
+							<option value="37.697185,-122.126871">Bay Fair</option>
+						
+							<option value="37.690754,-122.075567">Castro Valley</option>
+						
+							<option value="37.779528,-122.413756">Civic Center/UN Plaza</option>
+						
+							<option value="37.754006,-122.197273">Coliseum/Oakland Airport</option>
+						
+							<option value="37.684638,-122.466233">Colma</option>
+						
+							<option value="37.973737,-122.029095">Concord</option>
+						
+							<option value="37.70612055,-122.4690807">Daly City</option>
+						
+							<option value="37.869867,-122.268045">Downtown Berkeley</option>
+						
+							<option value="37.701695,-121.900367">Dublin/Pleasanton</option>
+						
+							<option value="37.925655,-122.317269">El Cerrito del Norte</option>
+						
+							<option value="37.9030588,-122.2992715">El Cerrito Plaza</option>
+						
+							<option value="37.792976,-122.396742">Embarcadero</option>
+						
+							<option value="37.557355,-121.9764">Fremont</option>
+						
+							<option value="37.774963,-122.224274">Fruitvale</option>
+						
+							<option value="37.732921,-122.434092">Glen Park</option>
+						
+							<option value="37.670399,-122.087967">Hayward</option>
+						
+							<option value="37.893394,-122.123801">Lafayette</option>
+						
+							<option value="37.797484,-122.265609">Lake Merritt</option>
+						
+							<option value="37.828415,-122.267227">MacArthur</option>
+						
+							<option value="37.599787,-122.38666">Millbrae</option>
+						
+							<option value="37.789256,-122.401407">Montgomery St.</option>
+						
+							<option value="37.87404,-122.283451">North Berkeley</option>
+						
+							<option value="38.003275,-122.024597">North Concord/Martinez</option>
+						
+							<option value="37.87836087,-122.1837911">Orinda</option>
+						
+							<option value="38.018914,-121.945154">Pittsburg/Bay Point</option>
+						
+							<option value="37.928403,-122.056013">Pleasant Hill/Contra Costa Centre</option>
+						
+							<option value="37.784991,-122.406857">Powell St.</option>
+						
+							<option value="37.936887,-122.353165">Richmond</option>
+						
+							<option value="37.844601,-122.251793">Rockridge</option>
+						
+							<option value="37.637753,-122.416038">San Bruno</option>
+						
+							<option value="37.616035,-122.392612">San Francisco Int'l Airport International Terminal</option>
+						
+							<option value="37.72261921,-122.1613112">San Leandro</option>
+						
+							<option value="37.63479954,-122.0575506">South Hayward</option>
+						
+							<option value="37.664174,-122.444116">South San Francisco</option>
+						
+							<option value="37.591208,-122.017867">Union City</option>
+						
+							<option value="37.905628,-122.067423">Walnut Creek</option>
+						
+							<option value="37.699759,-121.928099">West Dublin/Pleasanton</option>
+						
+							<option value="37.80467476,-122.2945822">West Oakland</option>
+						
+					</select>
+
+				</div>
+
+				<div style="display:none;">
+
+					<select id="california-to-station" autocomplete="off" class="station-selector" autocomplete="off">
+						<option value="-1">To All Stations</option>
+						
+							<option value="37.803664,-122.271604">12th St. Oakland City Center</option>
+						
+							<option value="37.765062,-122.419694">16th St. Mission</option>
+						
+							<option value="37.80787,-122.269029">19th St. Oakland</option>
+						
+							<option value="37.752254,-122.418466">24th St. Mission</option>
+						
+							<option value="37.853024,-122.26978">Ashby</option>
+						
+							<option value="37.72198087,-122.4474142">Balboa Park</option>
+						
+							<option value="37.697185,-122.126871">Bay Fair</option>
+						
+							<option value="37.690754,-122.075567">Castro Valley</option>
+						
+							<option value="37.779528,-122.413756">Civic Center/UN Plaza</option>
+						
+							<option value="37.754006,-122.197273">Coliseum/Oakland Airport</option>
+						
+							<option value="37.684638,-122.466233">Colma</option>
+						
+							<option value="37.973737,-122.029095">Concord</option>
+						
+							<option value="37.70612055,-122.4690807">Daly City</option>
+						
+							<option value="37.869867,-122.268045">Downtown Berkeley</option>
+						
+							<option value="37.701695,-121.900367">Dublin/Pleasanton</option>
+						
+							<option value="37.925655,-122.317269">El Cerrito del Norte</option>
+						
+							<option value="37.9030588,-122.2992715">El Cerrito Plaza</option>
+						
+							<option value="37.792976,-122.396742">Embarcadero</option>
+						
+							<option value="37.557355,-121.9764">Fremont</option>
+						
+							<option value="37.774963,-122.224274">Fruitvale</option>
+						
+							<option value="37.732921,-122.434092">Glen Park</option>
+						
+							<option value="37.670399,-122.087967">Hayward</option>
+						
+							<option value="37.893394,-122.123801">Lafayette</option>
+						
+							<option value="37.797484,-122.265609">Lake Merritt</option>
+						
+							<option value="37.828415,-122.267227">MacArthur</option>
+						
+							<option value="37.599787,-122.38666">Millbrae</option>
+						
+							<option value="37.789256,-122.401407">Montgomery St.</option>
+						
+							<option value="37.87404,-122.283451">North Berkeley</option>
+						
+							<option value="38.003275,-122.024597">North Concord/Martinez</option>
+						
+							<option value="37.87836087,-122.1837911">Orinda</option>
+						
+							<option value="38.018914,-121.945154">Pittsburg/Bay Point</option>
+						
+							<option value="37.928403,-122.056013">Pleasant Hill/Contra Costa Centre</option>
+						
+							<option value="37.784991,-122.406857">Powell St.</option>
+						
+							<option value="37.936887,-122.353165">Richmond</option>
+						
+							<option value="37.844601,-122.251793">Rockridge</option>
+						
+							<option value="37.637753,-122.416038">San Bruno</option>
+						
+							<option value="37.616035,-122.392612">San Francisco Int'l Airport International Terminal</option>
+						
+							<option value="37.72261921,-122.1613112">San Leandro</option>
+						
+							<option value="37.63479954,-122.0575506">South Hayward</option>
+						
+							<option value="37.664174,-122.444116">South San Francisco</option>
+						
+							<option value="37.591208,-122.017867">Union City</option>
+						
+							<option value="37.905628,-122.067423">Walnut Creek</option>
+						
+							<option value="37.699759,-121.928099">West Dublin/Pleasanton</option>
+						
+							<option value="37.80467476,-122.2945822">West Oakland</option>
+						
+					</select>
+
+				</div>
+				
+				
+				
+				<div class="focus-signup">
+				
+				
+			
+					<div class="download-links">
+					
+						<a href="https://carmacarpool.com/android" title="" target="_blank" style="text-decoration:none;">
+							<img src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/play-store-badge.png" alt="" />
+						</a>
+						
+						<a href="https://carmacarpool.com/ios" title="" target="_blank" style="text-decoration:none;">
+							<img src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/app-store-badge.png" alt="" />
+						</a>
+					</div>
+					
+				</div>
+				
+				<button class="btn btn-action"></button>
+				
+			</div>
+			
+			<a href="https://carmacarpool.com/blog/win-our-brand-new-tesla-for-one-week/">
+				<div class="bart-strike-chaos">
+					<img src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/tesla-small.jpg" alt="" />
+					<div class="desc-action">
+            			<span class="description">Win our brand new</span>
+            			<span class="description">Tesla for one week</span>
+         			</div>			
+				</div>
+			</a>
+			
+			<img class="heat-map-indicator" src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/heat-map-indicator.png" />
+
+		</div>
+
+		<a href="#" id="how-it-works-link" class="scroll-links" title="How It Works">
+			<span class="arrow"></span>How It Works
+		</a>
+
+		<div id="sf-bay-area" class="container content-box">
+			<div class="content-box-inner">
+				<a href="?country=us&amp;region=ca" title="Carpooling red-hot in the SF Bay Area!">
+					<span class="title">Carpooling red-hot in the SF Bay Area!</span><br />
+					<span class="bold">Check out the latest activity here</span>
+				</a>
+			</div>
+		</div>
+
+	
+		<div id="download-prompt">
+	<div class="background">
+		<img src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/PhoneSliver_Background.jpg"/>
+		<div class="dot-pattern"></div>
+		<div class="dot-pattern"></div>
+	</div>
+	<div class="prompt">
+		<button class="decline">X</button>
+		<div class="phone-models">
+			<img alt="Save the planet" src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/PhoneSliver_Phones.png" />
+		</div>
+		<div class="content">
+			<img src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/PhoneSliver_CarmaLogo.png" >
+			<div class="app-desc">
+				Carma lets you set up carpools by matching you with nearby people, all from your smartphone.
+			</div>
+			<div class="controls">
+				<span></span>
+				<select id="country-selector" autocomplete="off">
+					<option value="-1" data-dialing="+353">Please choose</option>
+					<optgroup label="----------">
+						
+							<option value="USA" data-dialing="+1">United States</option>
+						
+							<option value="NOR" data-dialing="+47">Norway</option>
+						
+							<option value="IRL" data-dialing="+353">Ireland</option>
+						
+					</optgroup>
+					<optgroup label="----------">
+						
+							<option value="AFG" data-dialing="93">Afghanistan</option>
+						
+							<option value="ALA" data-dialing="358">Åland Islands</option>
+						
+							<option value="ALB" data-dialing="355">Albania</option>
+						
+							<option value="DZA" data-dialing="213">Algeria</option>
+						
+							<option value="ASM" data-dialing="684">American Samoa</option>
+						
+							<option value="AND" data-dialing="376">Andorra</option>
+						
+							<option value="AGO" data-dialing="244">Angola</option>
+						
+							<option value="AIA" data-dialing="1264">Anguilla</option>
+						
+							<option value="ATA" data-dialing="672">Antarctica</option>
+						
+							<option value="ATG" data-dialing="1268">Antigua and Barbuda</option>
+						
+							<option value="ARG" data-dialing="54">Argentina</option>
+						
+							<option value="ARM" data-dialing="374">Armenia</option>
+						
+							<option value="ABW" data-dialing="297">Aruba</option>
+						
+							<option value="AUS" data-dialing="61">Australia</option>
+						
+							<option value="AUT" data-dialing="43">Austria</option>
+						
+							<option value="AZE" data-dialing="994">Azerbaijan</option>
+						
+							<option value="BHS" data-dialing="1242">Bahamas</option>
+						
+							<option value="BHR" data-dialing="973">Bahrain</option>
+						
+							<option value="BGD" data-dialing="880">Bangladesh</option>
+						
+							<option value="BRB" data-dialing="1246">Barbados</option>
+						
+							<option value="BLR" data-dialing="375">Belarus</option>
+						
+							<option value="BEL" data-dialing="32">Belgium</option>
+						
+							<option value="BLZ" data-dialing="501">Belize</option>
+						
+							<option value="BEN" data-dialing="229">Benin</option>
+						
+							<option value="BMU" data-dialing="1441">Bermuda</option>
+						
+							<option value="BTN" data-dialing="975">Bhutan</option>
+						
+							<option value="BOL" data-dialing="591">Bolivia</option>
+						
+							<option value="BES" data-dialing="599">Bonaire, Sint Eustatius and Saba</option>
+						
+							<option value="BIH" data-dialing="387">Bosnia and Herzegovina</option>
+						
+							<option value="BWA" data-dialing="267">Botswana</option>
+						
+							<option value="BVT" data-dialing="47">Bouvet Island</option>
+						
+							<option value="BRA" data-dialing="55">Brazil</option>
+						
+							<option value="IOT" data-dialing="246">British Indian Ocean Territory</option>
+						
+							<option value="BRN" data-dialing="673">Brunei Darussalam</option>
+						
+							<option value="BGR" data-dialing="359">Bulgaria</option>
+						
+							<option value="BFA" data-dialing="226">Burkina Faso</option>
+						
+							<option value="BDI" data-dialing="257">Burundi</option>
+						
+							<option value="KHM" data-dialing="855">Cambodia</option>
+						
+							<option value="CMR" data-dialing="237">Cameroon</option>
+						
+							<option value="CAN" data-dialing="1">Canada</option>
+						
+							<option value="CPV" data-dialing="238">Cape Verde</option>
+						
+							<option value="CYM" data-dialing="1345">Cayman Islands</option>
+						
+							<option value="CAF" data-dialing="236">Central African Republic</option>
+						
+							<option value="TCD" data-dialing="235">Chad</option>
+						
+							<option value="CHL" data-dialing="56">Chile</option>
+						
+							<option value="CHN" data-dialing="86">China</option>
+						
+							<option value="CXR" data-dialing="618">Christmas Island</option>
+						
+							<option value="CCK" data-dialing="61">Cocos (Keeling) Islands</option>
+						
+							<option value="COL" data-dialing="57">Colombia</option>
+						
+							<option value="COM" data-dialing="269">Comoros</option>
+						
+							<option value="COG" data-dialing="242">Congo</option>
+						
+							<option value="COD" data-dialing="243">Congo, the Democratic Republic of the</option>
+						
+							<option value="COK" data-dialing="682">Cook Islands</option>
+						
+							<option value="CRI" data-dialing="506">Costa Rica</option>
+						
+							<option value="CIV" data-dialing="225">Cote D'Ivoire</option>
+						
+							<option value="HRV" data-dialing="385">Croatia</option>
+						
+							<option value="CUB" data-dialing="53">Cuba</option>
+						
+							<option value="CUW" data-dialing="599">Curaçao</option>
+						
+							<option value="CYP" data-dialing="357">Cyprus</option>
+						
+							<option value="CZE" data-dialing="420">Czech Republic</option>
+						
+							<option value="DNK" data-dialing="45">Denmark</option>
+						
+							<option value="DJI" data-dialing="253">Djibouti</option>
+						
+							<option value="DMA" data-dialing="1767">Dominica</option>
+						
+							<option value="DOM" data-dialing="1809">Dominican Republic</option>
+						
+							<option value="ECU" data-dialing="593">Ecuador</option>
+						
+							<option value="EGY" data-dialing="20">Egypt</option>
+						
+							<option value="SLV" data-dialing="503">El Salvador</option>
+						
+							<option value="GNQ" data-dialing="240">Equatorial Guinea</option>
+						
+							<option value="ERI" data-dialing="291">Eritrea</option>
+						
+							<option value="EST" data-dialing="372">Estonia</option>
+						
+							<option value="ETH" data-dialing="251">Ethiopia</option>
+						
+							<option value="FLK" data-dialing="500">Falkland Islands (Malvinas)</option>
+						
+							<option value="FRO" data-dialing="298">Faroe Islands</option>
+						
+							<option value="FJI" data-dialing="679">Fiji</option>
+						
+							<option value="FIN" data-dialing="358">Finland</option>
+						
+							<option value="FRA" data-dialing="33">France</option>
+						
+							<option value="GUF" data-dialing="594">French Guiana</option>
+						
+							<option value="PYF" data-dialing="689">French Polynesia</option>
+						
+							<option value="ATF" data-dialing="">French Southern Territories</option>
+						
+							<option value="GAB" data-dialing="241">Gabon</option>
+						
+							<option value="GMB" data-dialing="220">Gambia</option>
+						
+							<option value="GEO" data-dialing="995">Georgia</option>
+						
+							<option value="DEU" data-dialing="49">Germany</option>
+						
+							<option value="GHA" data-dialing="233">Ghana</option>
+						
+							<option value="GIB" data-dialing="350">Gibraltar</option>
+						
+							<option value="GRC" data-dialing="30">Greece</option>
+						
+							<option value="GRL" data-dialing="299">Greenland</option>
+						
+							<option value="GRD" data-dialing="1473">Grenada</option>
+						
+							<option value="GLP" data-dialing="590">Guadeloupe</option>
+						
+							<option value="GUM" data-dialing="1671">Guam</option>
+						
+							<option value="GTM" data-dialing="502">Guatemala</option>
+						
+							<option value="GGY" data-dialing="44">Guernsey</option>
+						
+							<option value="GIN" data-dialing="224">Guinea</option>
+						
+							<option value="GNB" data-dialing="245">Guinea-Bissau</option>
+						
+							<option value="GUY" data-dialing="592">Guyana</option>
+						
+							<option value="HTI" data-dialing="509">Haiti</option>
+						
+							<option value="VAT" data-dialing="379">Holy See (Vatican City State)</option>
+						
+							<option value="HND" data-dialing="504">Honduras</option>
+						
+							<option value="HKG" data-dialing="852">Hong Kong</option>
+						
+							<option value="HUN" data-dialing="36">Hungary</option>
+						
+							<option value="ISL" data-dialing="354">Iceland</option>
+						
+							<option value="IND" data-dialing="91">India</option>
+						
+							<option value="IDN" data-dialing="62">Indonesia</option>
+						
+							<option value="IRN" data-dialing="98">Iran, Islamic Republic of</option>
+						
+							<option value="IRQ" data-dialing="964">Iraq</option>
+						
+							<option value="IMN" data-dialing="44">Isle of Man</option>
+						
+							<option value="ISR" data-dialing="972">Israel</option>
+						
+							<option value="ITA" data-dialing="39">Italy</option>
+						
+							<option value="JAM" data-dialing="1876">Jamaica</option>
+						
+							<option value="JPN" data-dialing="81">Japan</option>
+						
+							<option value="JEY" data-dialing="44">Jersey</option>
+						
+							<option value="JOR" data-dialing="962">Jordan</option>
+						
+							<option value="KAZ" data-dialing="7">Kazakhstan</option>
+						
+							<option value="KEN" data-dialing="254">Kenya</option>
+						
+							<option value="KIR" data-dialing="686">Kiribati</option>
+						
+							<option value="PRK" data-dialing="850">Korea, Democratic People's Republic of</option>
+						
+							<option value="KOR" data-dialing="850">Korea, Republic of</option>
+						
+							<option value="KWT" data-dialing="965">Kuwait</option>
+						
+							<option value="KGZ" data-dialing="996">Kyrgyzstan</option>
+						
+							<option value="LAO" data-dialing="856">Lao People's Democratic Republic</option>
+						
+							<option value="LVA" data-dialing="371">Latvia</option>
+						
+							<option value="LBN" data-dialing="961">Lebanon</option>
+						
+							<option value="LSO" data-dialing="266">Lesotho</option>
+						
+							<option value="LBR" data-dialing="231">Liberia</option>
+						
+							<option value="LBY" data-dialing="218">Libyan Arab Jamahiriya</option>
+						
+							<option value="LIE" data-dialing="423">Liechtenstein</option>
+						
+							<option value="LTU" data-dialing="370">Lithuania</option>
+						
+							<option value="LUX" data-dialing="352">Luxembourg</option>
+						
+							<option value="MAC" data-dialing="853">Macao</option>
+						
+							<option value="MKD" data-dialing="389">Macedonia, the Former Yugoslav Republic of</option>
+						
+							<option value="MDG" data-dialing="261">Madagascar</option>
+						
+							<option value="MWI" data-dialing="265">Malawi</option>
+						
+							<option value="MYS" data-dialing="60">Malaysia</option>
+						
+							<option value="MDV" data-dialing="960">Maldives</option>
+						
+							<option value="MLI" data-dialing="223">Mali</option>
+						
+							<option value="MLT" data-dialing="356">Malta</option>
+						
+							<option value="MHL" data-dialing="692">Marshall Islands</option>
+						
+							<option value="MTQ" data-dialing="596">Martinique</option>
+						
+							<option value="MRT" data-dialing="222">Mauritania</option>
+						
+							<option value="MUS" data-dialing="230">Mauritius</option>
+						
+							<option value="MYT" data-dialing="269">Mayotte</option>
+						
+							<option value="MEX" data-dialing="52">Mexico</option>
+						
+							<option value="FSM" data-dialing="691">Micronesia, Federated States of</option>
+						
+							<option value="MDA" data-dialing="373">Moldova, Republic of</option>
+						
+							<option value="MCO" data-dialing="377">Monaco</option>
+						
+							<option value="MNG" data-dialing="976">Mongolia</option>
+						
+							<option value="MNE" data-dialing="382">Montenegro</option>
+						
+							<option value="MSR" data-dialing="1664">Montserrat</option>
+						
+							<option value="MAR" data-dialing="212">Morocco</option>
+						
+							<option value="MOZ" data-dialing="258">Mozambique</option>
+						
+							<option value="MMR" data-dialing="95">Myanmar</option>
+						
+							<option value="NAM" data-dialing="264">Namibia</option>
+						
+							<option value="NRU" data-dialing="674">Nauru</option>
+						
+							<option value="NPL" data-dialing="977">Nepal</option>
+						
+							<option value="NLD" data-dialing="31">Netherlands</option>
+						
+							<option value="NCL" data-dialing="687">New Caledonia</option>
+						
+							<option value="NZL" data-dialing="64">New Zealand</option>
+						
+							<option value="NIC" data-dialing="505">Nicaragua</option>
+						
+							<option value="NER" data-dialing="227">Niger</option>
+						
+							<option value="NGA" data-dialing="234">Nigeria</option>
+						
+							<option value="NIU" data-dialing="683">Niue</option>
+						
+							<option value="NFK" data-dialing="672">Norfolk Island</option>
+						
+							<option value="MNP" data-dialing="1670">Northern Mariana Islands</option>
+						
+							<option value="OMN" data-dialing="968">Oman</option>
+						
+							<option value="PAK" data-dialing="92">Pakistan</option>
+						
+							<option value="PLW" data-dialing="680">Palau</option>
+						
+							<option value="PSE" data-dialing="970">Palestinian Territory, Occupied</option>
+						
+							<option value="PAN" data-dialing="507">Panama</option>
+						
+							<option value="PNG" data-dialing="675">Papua New Guinea</option>
+						
+							<option value="PRY" data-dialing="595">Paraguay</option>
+						
+							<option value="PER" data-dialing="51">Peru</option>
+						
+							<option value="PHL" data-dialing="63">Philippines</option>
+						
+							<option value="PCN" data-dialing="64">Pitcairn</option>
+						
+							<option value="POL" data-dialing="48">Poland</option>
+						
+							<option value="PRT" data-dialing="351">Portugal</option>
+						
+							<option value="PRI" data-dialing="1939">Puerto Rico</option>
+						
+							<option value="QAT" data-dialing="974">Qatar</option>
+						
+							<option value="REU" data-dialing="262">Reunion</option>
+						
+							<option value="ROU" data-dialing="40">Romania</option>
+						
+							<option value="RUS" data-dialing="7">Russian Federation</option>
+						
+							<option value="RWA" data-dialing="250">Rwanda</option>
+						
+							<option value="BLM" data-dialing="590">Saint Barthélemy</option>
+						
+							<option value="SHN" data-dialing="290">Saint Helena</option>
+						
+							<option value="KNA" data-dialing="1869">Saint Kitts and Nevis</option>
+						
+							<option value="LCA" data-dialing="1758">Saint Lucia</option>
+						
+							<option value="MAF" data-dialing="590">Saint Martin</option>
+						
+							<option value="SPM" data-dialing="508">Saint Pierre and Miquelon</option>
+						
+							<option value="VCT" data-dialing="1784">Saint Vincent and the Grenadines</option>
+						
+							<option value="WSM" data-dialing="685">Samoa</option>
+						
+							<option value="SMR" data-dialing="378">San Marino</option>
+						
+							<option value="STP" data-dialing="239">Sao Tome and Principe</option>
+						
+							<option value="SAU" data-dialing="966">Saudi Arabia</option>
+						
+							<option value="SEN" data-dialing="221">Senegal</option>
+						
+							<option value="SRB" data-dialing="381">Serbia</option>
+						
+							<option value="SYC" data-dialing="248">Seychelles</option>
+						
+							<option value="SLE" data-dialing="232">Sierra Leone</option>
+						
+							<option value="SGP" data-dialing="65">Singapore</option>
+						
+							<option value="SXM" data-dialing="1721">Sint Maarten</option>
+						
+							<option value="SVK" data-dialing="421">Slovakia</option>
+						
+							<option value="SVN" data-dialing="386">Slovenia</option>
+						
+							<option value="SLB" data-dialing="677">Solomon Islands</option>
+						
+							<option value="SOM" data-dialing="252">Somalia</option>
+						
+							<option value="ZAF" data-dialing="27">South Africa</option>
+						
+							<option value="SGS" data-dialing="500">South Georgia and the South Sandwich Islands</option>
+						
+							<option value="SSD" data-dialing="211">South Sudan</option>
+						
+							<option value="ESP" data-dialing="34">Spain</option>
+						
+							<option value="LKA" data-dialing="94">Sri Lanka</option>
+						
+							<option value="SDN" data-dialing="249">Sudan</option>
+						
+							<option value="SUR" data-dialing="597">Suriname</option>
+						
+							<option value="SJM" data-dialing="47">Svalbard and Jan Mayen</option>
+						
+							<option value="SWZ" data-dialing="268">Swaziland</option>
+						
+							<option value="SWE" data-dialing="46">Sweden</option>
+						
+							<option value="CHE" data-dialing="41">Switzerland</option>
+						
+							<option value="SYR" data-dialing="963">Syrian Arab Republic</option>
+						
+							<option value="TWN" data-dialing="886">Taiwan, Province of China</option>
+						
+							<option value="TJK" data-dialing="992">Tajikistan</option>
+						
+							<option value="TZA" data-dialing="255">Tanzania, United Republic of</option>
+						
+							<option value="THA" data-dialing="66">Thailand</option>
+						
+							<option value="TLS" data-dialing="670">Timor-Leste</option>
+						
+							<option value="TGO" data-dialing="228">Togo</option>
+						
+							<option value="TKL" data-dialing="690">Tokelau</option>
+						
+							<option value="TON" data-dialing="676">Tonga</option>
+						
+							<option value="TTO" data-dialing="1868">Trinidad and Tobago</option>
+						
+							<option value="TUN" data-dialing="216">Tunisia</option>
+						
+							<option value="TUR" data-dialing="90">Turkey</option>
+						
+							<option value="TKM" data-dialing="993">Turkmenistan</option>
+						
+							<option value="TCA" data-dialing="1649">Turks and Caicos Islands</option>
+						
+							<option value="TUV" data-dialing="688">Tuvalu</option>
+						
+							<option value="UGA" data-dialing="256">Uganda</option>
+						
+							<option value="UKR" data-dialing="380">Ukraine</option>
+						
+							<option value="ARE" data-dialing="971">United Arab Emirates</option>
+						
+							<option value="GBR" data-dialing="44">United Kingdom</option>
+						
+							<option value="UMI" data-dialing="1">United States Minor Outlying Islands</option>
+						
+							<option value="URY" data-dialing="598">Uruguay</option>
+						
+							<option value="UZB" data-dialing="998">Uzbekistan</option>
+						
+							<option value="VUT" data-dialing="678">Vanuatu</option>
+						
+							<option value="VEN" data-dialing="58">Venezuela</option>
+						
+							<option value="VNM" data-dialing="84">Viet Nam</option>
+						
+							<option value="VGB" data-dialing="1284">Virgin Islands, British</option>
+						
+							<option value="VIR" data-dialing="1340">Virgin Islands, U.s.</option>
+						
+							<option value="WLF" data-dialing="681">Wallis and Futuna</option>
+						
+							<option value="ESH" data-dialing="212">Western Sahara</option>
+						
+							<option value="YEM" data-dialing="967">Yemen</option>
+						
+							<option value="ZMB" data-dialing="260">Zambia</option>
+						
+							<option value="ZWE" data-dialing="263">Zimbabwe</option>
+						
+					</optgroup>
+				</select>
+				<input type="text" class="phone-number" placeholder="Enter phone number" />
+				<button class="btn btn-action">Send</button>
+			</div>
+			<div class="download-desc">
+				Get a download link via SMS and find your nearby matches right away!
+			</div>
+			<div class="download-links">
+				<img data-href="https://carmacarpool.com/ios" data-action="download-ios" src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/PhoneSliver_AppStore.png">
+				<img data-href="https://carmacarpool.com/android" data-action="download-android" src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/PhoneSliver_PlayStore.png">
+			</div>
+		</div>
+	</div>
+</div>
+	</div>
+	
+	
+	
+		<input type="hidden" id="open-access" value="y"/>
+	
+	
+	<div id="popup-container">
+	<script id="avego-is-carma" type="text/x-handlebars-template">
+		<div id="avego-is-carma">
+			<img id="logo-avego" src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/avegoiscarma1.png" alt="Avego"/><br />
+			is now<br />
+			<img id="logo-carma" src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/avegoiscarma2.png" alt="Carma"/><br />
+			We will redirect to connect with Facebook
+		</div>
+	</script>
+	
+</div>
+	
+	
+	
+	
+	<script type="text/javascript" src="//assets.zendesk.com/external/zenbox/v2.6/zenbox.js"></script>
+	<style type="text/css" media="screen, projection">
+		@import url(//assets.zendesk.com/external/zenbox/v2.6/zenbox.css);
+	</style>
+	
+	<script id="heat-map-trip-info-template" type="text/x-handlebars-template">
+
+		<div class="heat-map-info">
+			<div class="photo-container">
+			<img src="{{userPhoto}}" class="photo">
+		</div>
+
+		<div class="trip-container">
+			<div class="name">{{alias}}</div>
+			<div class="address"><img src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/icon-marker-person-origin.png" class="route-icon"/>{{origin}}</div>
+			<div class="address"><img src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/icon-marker-person-destination.png" class="route-icon"/>{{destination}}</div>
+			<div>
+				<img src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/icon-clock-small.gif"/>
+				{{time startTime true}}
+				{{#if returnTime}}
+					(returning {{time returnTime true}})
+				{{/if}}
+			</div>
+			<div>
+				{{#ifc lookingfor "driver"}}
+					<img src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/icon-driver-small.gif"/>
+				{{/ifc}}
+				{{#ifc lookingfor "rider"}}
+					<img src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/icon-rider-small.gif"/>
+				{{/ifc}}
+				{{#ifc lookingfor "either"}}
+					<img src="https://developer.avego.com/libs/rtr-desktop/1.191.0/images/icon-either-small.gif"/>
+				{{/ifc}}
+				Looking for
+				{{tripUserRole lookingfor}}
+			</div>
+		</div>
+
+		<div class="profile"><a class="btn btn-action profile-link" href="userprofile#{{userId}}/back">View Profile</a></div>
+	</div>
+	</script>
+
+
+				<div class="footer-push"></div>
+			</div>
+			
+			<input type="hidden" id="web-root" name="web-root" value="https://carmacarpool.com/" />
+<input type="hidden" id="app-context" name="app-context" value="/" />
+<input type="hidden" id="resource-image-root" name="resource-image-root" value="https://developer.avego.com/libs/rtr-desktop/1.191.0/images" />
+<input type="hidden" id="timestamp-last-api-change" name="timestamp-last-api-change" value="1357212970618" />
+<input type="hidden" id="geoip-lat" name="geoip-lat" value="28.57" />
+<input type="hidden" id="geoip-lon" name="geoip-lon" value="77.32" />
+<input type="hidden" id="facebook-app-id" name="facebook-app-id" value="463430603718986" />
+<input type="hidden" id="facebook-available-domain" name="facebook-available-domain" value="carmacarpool.com" />
+<input type="hidden" id="facebook-should-replace-url" name="facebook-should-replace-url" value="/security/login.jsp" />
+<input type="hidden" id="facebook-real-auth-url" name="facebook-real-auth-url" value="/authentication/auth" />
+<input type="hidden" id="facebook-channel" name="facebook-channel" value="https://carmacarpool.com/facebookChannel" />
+<input type="hidden" id="flash-path" name="flash-path" value="https://carmacarpool.com/flash" />
+			<footer id="footer">
+	<section class="container footer-in">
+		<div class="one_third">
+			<h4 class="subtitle">Help</h4>
+			<hr class="vertical-space1">
+			<ul>
+				<li class="square"><a href="https://carmacarpool.com/contact/">Contact Carma</a></li>
+				<!-- <li class="square"><a href="https://carmacarpool.com/safety.html">Safety</a></li> -->
+				<li class="square"><a href="https://carmacarpool.com/legal/">Legal</a></li>
+				<!-- <li class="square"><a href="https://carmacarpool.com/privacy/">Privacy Policy</a></li> -->
+			</ul>
+		</div>
+		<!-- end-Help /end -->
+
+		<div class="one_third">
+			<h4 class="subtitle">About Carma</h4>
+			<hr class="vertical-space1">
+			<ul>
+				<!-- <li class="square"><a href="https://carmacarpool.com/companyinfo.html">Company Info</a></li> -->
+				<li class="square"><a href="https://carmacarpool.com/team/">Meet the Team</a></li>
+				<li class="square"><a href="https://carmacarpool.com/jobs/">Jobs</a></li>
+				<li class="square"><a href="https://carmacarpool.com/pressroom/">Press Room</a></li>
+			</ul>
+		</div>
+		<!-- About Carma /end -->
+
+		<!-- <div class="one_third column-last">
+			<h4 class="subtitle">Services</h4>
+			<hr class="vertical-space1">
+			<ul>
+				<li class="square"><a href="https://carmacarpool.com/real-timecarpooling.html">Carma Carpooling</a></li>
+				<li class="square"><a href="https://carmacarpool.com/futurefleet.html">Vanpool</a></li>
+				<li class="square"><a href="https://carmacarpool.com/carmacreators.html">Carma Creators</a></li>
+			</ul>
+		</div> --> 
+		<!-- Services /end -->
+	</section>
+		<!-- end-footer-in -->
+	<section class="footbot">
+		<div class="container">
+			 <div class="footer-navi">© Carma Technology Corporation, 2014. All Rights Reserved.<br />For media enquiries please contact<a href="mailto:media@car.ma">media@car.ma</a></div>
+		<!-- footer-navigation /end -->  
+		</div>
+	</section>
+		<!-- end-footbot -->
+</footer>
+<!--<span id="scroll-top"><a class="scrollup" style="display: inline;"><i class="icomoon-arrow-up"></i></a></span>-->
+<!--
+<div class="footer">
+	<div class="container">
+
+		<ul class="inline links social">
+			
+				<li>
+					<a href="https://carmacarpool.com/social/twitter" target="Carma on twitter" class="twitter-icon"></a>
+				</li>
+			
+			
+				<li>
+					<a href="https://carmacarpool.com/social/facebook" target="Carma on Facebook" class="facebook-icon"></a>
+				</li>
+			
+			
+				<li>
+					<a href="https://carmacarpool.com/social/linkedin" target="Carma on LinkedIn" class="linkedin-icon"></a>
+				</li>
+			
+			
+				<li>
+					<a href="https://carmacarpool.com/social/youtube" target="Carma on Youtube" class="youtube-icon"></a>
+				</li>
+			
+		</ul>
+
+		
+			<ul class="inline links">
+				<li><a href="https://carmacarpool.com" title="Main Carma website">Main Carma Page</a></li>
+				<li><a href="https://carmacarpool.com/careers" title="Careers">Careers</a></li>
+				<li><a href="https://carmacarpool.com/rtr" title="Real-time ridesharing">Real-time Ridesharing</a></li>
+				<li><a href="https://carmacarpool.com/about" title="Company Info">Company Info</a></li>
+				<li><a href="https://carmacarpool.com/support" title="Support">Support</a></li>
+				<li><a href="https://carmacarpool.com/news" title="Blog">Blog</a></li>
+				<li><a href="https://carmacarpool.com/team" title="The Carma Team">The Carma Team</a></li>				
+				<li><a href="https://carmacarpool.com/legal" title="Legal">Legal</a></li>
+			</ul>
+		
+
+		&copy; Avego Ltd., 2013. All rights reserved. View our <a href="/privacy-policy" title="privacy policy" target="_blank">privacy policy</a> or <a href="/terms-of-service" title="terms of service" target="_blank">terms of service</a><br />
+		For media enquiries please contact: <a href="mailto:media@car.ma" title="media@car.ma">media@car.ma</a>
+
+	</div>
+</div>
+--!>
+			<script id="popup-modal-template" type="text/x-handlebars-template">
+	<!-- Modal -->
+	<div class="popup-modal modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 class="modal-title">{{title}}</h3>
+		</div>
+		<div class="modal-body">
+			<p>{{body}}</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-secondary btn-large" data-dismiss="modal" aria-hidden="true">{{cancel}}</button>
+			<button class="btn btn-action btn-large btn-action">{{confirm}}</button>
+		</div>
+	</div>
+</script>
+
+		</div>
+	</body>
+
+	<script type="text/javascript" src="/rtr-desktop-web/jawr/gzip_N929185307/i18n/messages.js" ></script>
+
+
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?client=gme-avego&libraries=places&sensor=true&v=3.10"></script>
+<script type="text/javascript">
+	var avego = avego || {};
+	avego.apiRoot = "https://api.carmacarpool.com";
+	avego.oauthTokenCookie = "_dw_utc";
+</script>
+
+
+	<script type="text/javascript" src="https://developer.avego.com/libs/rtr-common/1.145.0/avego-rtr-common-1.145.0.min.js"></script>
+	<script type="text/javascript" src="https://developer.avego.com/libs/rtr-desktop/1.191.0/avego-rtr-desktop-1.191.0.min.js"></script>
+
+
+
+	<script type="text/javascript">
+
+	var avego = avego || {};
+	avego.app = avego.app || {};
+
+	
+	$(function() {
+		
+		var launchApp = _.once(function() {
+			$(function () {
+
+	_.defer(function () {
+
+		var user = new avego.rtr.desktop.model.User(),
+			messageBadge = new avego.rtr.model.NotificationBadge(null, {id:avego.rtr.desktop.utils.ResourceOwner.getUserId()}),
+			tokenExchange = new avego.rtr.desktop.model.TokenExchange(),
+			downloadSMS = new avego.rtr.desktop.model.DownloadSMS(),
+
+			userPreferences = new avego.rtr.collection.UserPreferences(null, {id: avego.rtr.desktop.utils.ResourceOwner.getUserId()}),
+
+			navbarView = new avego.rtr.desktop.view.NavBarView({model:user, badge:messageBadge}),
+			searchFormView = new avego.rtr.desktop.view.RideSearchFormView(),
+			homepageView = new avego.rtr.desktop.view.HomePageView({
+				searchFormView: searchFormView, 
+				user: user, 
+				tokenExchange: tokenExchange, 
+				userPreferences: userPreferences,
+				downloadSMS: downloadSMS
+			}),
+
+			homeRouter = new avego.rtr.desktop.router.HomeRouter({
+
+				user:user,
+				badge:messageBadge,
+
+				userPreferences: userPreferences,
+
+				searchFormView:searchFormView
+
+			});
+
+		Backbone.history.start();
+		
+		if (typeof(Zenbox) !== "undefined") {
+			Zenbox.init({
+				dropboxID:   "20185503",
+				url:         "https://avegortr.zendesk.com",
+				tabTooltip:  "Support",
+				tabImageURL: "https://assets.zendesk.com/external/zenbox/images/tab_support_black_right.png",
+				tabColor:    "white",
+				tabPosition: "Right"
+			});
+		}
+		
+	});
+});
+		});
+
+		_.delay(launchApp, 20000);
+
+		var userId = avego.rtr.desktop.utils.ResourceOwner.getUserId() || -1;
+		
+		avego.app.featureToggles = new avego.rtr.model.FeatureToggles(null, {id: userId});
+		
+		avego.app.featureToggles.on("request.Finished", launchApp);
+
+		var server_response = function() {
+			avego.app.featureToggles.trigger("request.Finished");
+		};
+		
+		avego.app.featureToggles.fetch({
+			success: server_response,
+			error: server_response
+		});
+
+	});
+	
+</script>	
+	
+
+	<!--[if lte IE 8]>
+	<style>
+		.row-fluid [class*="span"] { min-height: 20px; }
+	</style>
+<![endif]-->
+
+<!--[if lte IE 9]>
+	<script type="text/javascript" src="https://carmacarpool.com/js/external/html5shiv.js/"></script>
+	<script type="text/javascript" src="https://carmacarpool.com/js/ie-fix.js"></script>
+<![endif]-->
+
+</html>
